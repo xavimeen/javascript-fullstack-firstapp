@@ -14,7 +14,6 @@ require('./database');
 // Settings
 app.set('port', process.env.PORT);
 
-
 // Middlewares
 app.use(morgan('dev'));
 const storage = multer.diskStorage({
@@ -28,14 +27,11 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
 
-
 // Routes
 app.use('/api/books',require('./routes/books'));
 
-
 // Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.listen(app.get('port'), () => {
     console.log('Servidor corriendo en el puerto:', app.get('port'));

@@ -16,14 +16,17 @@ document.getElementById('book-form')
         const isbn = document.getElementById('isbn').value;
         const imagen = document.getElementById('image').files;
 
-        const formData =  new FormData();
-        formData.append('title', titulo);
-        formData.append('author', autor);
-        formData.append('isbn', isbn);
-        formData.append('image', imagen[0]);
-
-        ui.addNewBook(formData);
-        ui.renderMessage('Libro agregado corerctamente', 'success')
+        if(titulo && autor && isbn && imagen[0]) {
+            const formData =  new FormData();
+            formData.append('title', titulo);
+            formData.append('author', autor);
+            formData.append('isbn', isbn);
+            formData.append('image', imagen[0]);
+    
+            ui.addNewBook(formData);
+        } else {
+            ui.renderMessage('Todos los campos tienen que estar completados.', 'danger');
+        }
 
     });
 
@@ -33,6 +36,5 @@ document.getElementById('books-cards')
         
         if(e.target.classList.contains('delete')) {
             ui.deleteBook(e.target.getAttribute('_id'));
-            ui.renderMessage('Libro eliminado', 'danger');
         }
     });
