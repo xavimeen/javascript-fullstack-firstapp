@@ -1,6 +1,8 @@
 # javascript-fullstack-firstapp
 
-Crud simple con js fullstack
+![](./screenshot.PNG)
+
+Crud simple hecho con JavaScript, Webpack, NodeJs y MongoDB
 
 - npm install
 - npm run build
